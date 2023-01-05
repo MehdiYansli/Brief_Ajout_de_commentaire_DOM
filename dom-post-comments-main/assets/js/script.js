@@ -1,7 +1,7 @@
 
 // Ajouter un évènement pour capter et bloquer l'évènement lors du clique sur le bouton
 
-var button = document.getElementById('comment-submit');
+const button = document.getElementById('comment-submit');
 console.log(button);
 
 // add a click event listener on the form submit button
@@ -17,6 +17,22 @@ function intercept(event) {
 } 
 
 
+const nameContent = document.getElementById('comment-username');
+const messageContent = document.getElementById('comment-content');
+
+nameContent.addEventListener('keyup', update);
+messageContent.addEventListener('keyup', update);
+
+function update() {
+
+
+    if (nameContent.value == "" || messageContent.value == "") {
+
+        button.disabled = true;
+
+    } else { button.disabled = false ;}
+             
+}
 
 
 
@@ -36,7 +52,7 @@ let message = document.getElementById('comment-content').value;
     console.log(nom);
     console.log(message);
 
-
+    button.disabled = false ;
 // create a new comment with the user name, the current date (french format: dd/mm/yyyy)
 
 // Création du nouveau li pour avoir un troisième commentaire
